@@ -23,7 +23,138 @@
 ・・・とりあえずこんなものでしょうか。<br>
 もっと色々と作りたいとは思いますが、やることが多いと実装が億劫になってしまいます。<br>
 なので、これ位にして全て実装後に必要であれば、追加しましょう。<br>
+<br>
 </p>
 
+<h2>・DB設計</h2>
+<p>
+さて、実装する内容が決まりましたので、DBの構成について考えていきましょう。<br>
+とにかく必要になりそうなものをどんどん作ります。<br>
+<br>
+m_gacha
+</p>
+
+<table border="1">
+    <tr>
+      <th>No.</th>
+      <th>PK</th>
+      <th>FK</th>
+      <th>カラム名</th>
+      <th>データ型</th>
+      <th>NotNull</th>
+      <th>デフォルト</th>
+      <th>備考</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>〇</td>
+      <td></td>
+      <td>id</td>
+      <td>INTEGER</td>
+      <td>NOTNULL</td>
+      <td></td>
+      <td>ガチャID</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td>title</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+        <td></td>
+        <td>ガチャタイトル</td>
+    </tr>
+  </table>
+
+<p>
+こちらはガチャのマスターテーブルです。<br>
+ガチャの種類を設定することができ、ピックアップガチャや有償ガチャなどの<br>
+複数のガチャを扱えるようになります。<br>
+<br>
+m_character<br>
+</p>
+
+<table border="1">
+    <tr>
+      <th>No.</th>
+      <th>PK</th>
+      <th>FK</th>
+      <th>カラム名</th>
+      <th>データ型</th>
+      <th>NotNull</th>
+      <th>デフォルト</th>
+      <th>備考</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>〇</td>
+      <td></td>
+      <td>id</td>
+      <td>INTEGER</td>
+      <td>NOTNULL</td>
+      <td></td>
+      <td>キャラクターID</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td>name</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+        <td></td>
+        <td>キャラクター名</td>
+    </tr>
+  </table>
+
+  <p>
+    こちらはキャラクターのマスタテーブルです。<br>
+    ゲームで登場するキャラクターをここに登録します。<br>
+    今回キャラクターを排出しますが、このマスターテーブルはあくまでキャラクター情報です。<br>
+    ここから排出するキャラクターは決まりません。<br>
+    詳しくは後程記載します。<br>
+    <br>
+    m_rerity
+</p>
+
+<table border="1">
+    <tr>
+      <th>No.</th>
+      <th>PK</th>
+      <th>FK</th>
+      <th>カラム名</th>
+      <th>データ型</th>
+      <th>NotNull</th>
+      <th>デフォルト</th>
+      <th>備考</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>〇</td>
+      <td></td>
+      <td>id</td>
+      <td>INTEGER</td>
+      <td>NOTNULL</td>
+      <td></td>
+      <td>レアリティID</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td>name</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+        <td></td>
+        <td>レアリティ名(☆など)</td>
+    </tr>
+  </table>
+<p>
+    こちらはレアレティのマスタテーブルです。<br>
+    idが1なら「☆」、idが3なら「☆☆☆」という具合ですね。
+    ガチャだけではなく、ゲームでも使用できるように汎用性があるようにしましょう。<br>
+    マスタとして持っておくことによって、新しいレアリティが必要になってもすぐに追加できます。<br>
+</p>
 </body>
 </html>
