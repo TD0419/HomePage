@@ -152,9 +152,152 @@ m_character<br>
   </table>
 <p>
     こちらはレアレティのマスタテーブルです。<br>
-    idが1なら「☆」、idが3なら「☆☆☆」という具合ですね。
+    idが1なら「☆」、idが3なら「☆☆☆」という具合ですね。<br>
     ガチャだけではなく、ゲームでも使用できるように汎用性があるようにしましょう。<br>
     マスタとして持っておくことによって、新しいレアリティが必要になってもすぐに追加できます。<br>
+    <br>
+    m_item
 </p>
+
+<table border="1">
+    <tr>
+      <th>No.</th>
+      <th>PK</th>
+      <th>FK</th>
+      <th>カラム名</th>
+      <th>データ型</th>
+      <th>NotNull</th>
+      <th>デフォルト</th>
+      <th>備考</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>〇</td>
+      <td></td>
+      <td>id</td>
+      <td>INTEGER</td>
+      <td>NOTNULL</td>
+      <td></td>
+      <td>アイテムID</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td>type</td>
+        <td>VARCHAR(255)</td>
+        <td>NOTNULL</td>
+        <td></td>
+        <td>アイテムタイプ(キャラクターは1など)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td>contents_id</td>
+        <td>INTEGER</td>
+        <td>NOTNULL</td>
+        <td></td>
+        <td>コンテンツID(キャラクターIDなど)</td>
+    </tr>
+  </table>
+  <p>
+    こちらはアイテムのマスタテーブルです。<br>
+    ゲームでは様々な種類のアイテムがあります。<br>
+    ですので、種類分けができるようにしておきましょう。<br>
+    今回では所持しているキャラクターもアイテムとして持たせます。<br>
+    アイテムにキャラクターIDを持たせて、キャラクター情報を引っ張ってこれるようにしておきましょう。<br>
+    正直コンテンツIDはキャラクターIDと関連を持たせるために無理やり入れた感があるので、<br>
+    将来的にDB構成が変わる可能性があります。<br>
+    <br>
+   m_item_type
+
+  </p>
+  <table border="1">
+    <tr>
+      <th>No.</th>
+      <th>PK</th>
+      <th>FK</th>
+      <th>カラム名</th>
+      <th>データ型</th>
+      <th>NotNull</th>
+      <th>デフォルト</th>
+      <th>備考</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>〇</td>
+      <td></td>
+      <td>id</td>
+      <td>INTEGER</td>
+      <td>NOTNULL</td>
+      <td></td>
+      <td>アイテムタイプID</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td>name</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+        <td></td>
+        <td>名前(キャラクターなど)</td>
+    </tr>
+  </table>
+
+  <p>
+    <br>
+    m_gacha_item
+</p>
+<table border="1">
+    <tr>
+        <th>No.</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>カラム名</th>
+        <th>データ型</th>
+        <th>NotNull</th>
+        <th>デフォルト</th>
+        <th>備考</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>〇</td>
+        <td></td>
+        <td>id</td>
+        <td>INTEGER</td>
+        <td>NOTNULL</td>
+        <td></td>
+        <td>ガチャアイテムID</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td>rate</td>
+          <td>INTEGER</td>
+          <td>NOTNULL</td>
+          <td></td>
+          <td>確率(0.1%なら0.1)</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td></td>
+          <td></td>
+          <td>item_id</td>
+          <td>INTEGER</td>
+          <td>NOTNULL</td>
+          <td></td>
+          <td>アイテムID</td>
+      </tr>
+    </table>
+    <p>
+    遂に出てきました、ガチャアイテムのマスタテーブルです。<br>
+    ここで排出の確率を設定できます。<br>
+    アイテムIDで先ほど作ったアイテムマスタテーブルからアイテム情報を引っ張ってきましょう。<br>
+    <br>
+    </p>
+
 </body>
 </html>
