@@ -60,10 +60,30 @@ m_gacha
         <td></td>
         <td></td>
         <td>title</td>
+        <td>INTEGER</td>
+        <td>NOTNULL</td>
+        <td></td>
+        <td>ガチャタイトル</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td>gacha_group</td>
         <td>VARCHAR(255)</td>
         <td></td>
         <td></td>
-        <td>ガチャタイトル</td>
+        <td>ガチャ排出グループ</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td>cost</td>
+        <td>INTEGER</td>
+        <td>NOTNULL</td>
+        <td></td>
+        <td>ガチャに必要なアイテム数</td>
     </tr>
   </table>
 
@@ -291,12 +311,30 @@ m_character<br>
           <td></td>
           <td>アイテムID</td>
       </tr>
+      <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td>rerity_id</td>
+        <td>INTEGER</td>
+        <td>NOTNULL</td>
+        <td></td>
+        <td>レアリティID</td>
+    </tr>
     </table>
     <p>
     遂に出てきました、ガチャアイテムのマスタテーブルです。<br>
     ここで排出の確率を設定できます。<br>
     アイテムIDで先ほど作ったアイテムマスタテーブルからアイテム情報を引っ張ってきましょう。<br>
     <br>
+    
+    一通りガチャに必要なマスタテーブルを作成しました。
+    まだまだ手を入れたい箇所もあるとは思いますが、実装の方にも着手していきましょう。
+    実装することによって見えてくることもあります。
+
+    次回はPostgreSQLでDBを実装していきましょう！
+
+    【第二回】DBを実装しよう！
     </p>
 
 </body>
