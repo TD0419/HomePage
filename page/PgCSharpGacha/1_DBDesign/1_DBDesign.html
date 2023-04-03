@@ -295,6 +295,16 @@ m_character<br>
           <td>2</td>
           <td></td>
           <td></td>
+          <td>group</td>
+          <td>INTEGER</td>
+          <td>NOTNULL</td>
+          <td></td>
+          <td>ガチャ排出グループ</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td></td>
+          <td></td>
           <td>rate</td>
           <td>INTEGER</td>
           <td>NOTNULL</td>
@@ -302,7 +312,7 @@ m_character<br>
           <td>確率(0.1%なら0.1)</td>
       </tr>
       <tr>
-          <td>3</td>
+          <td>4</td>
           <td></td>
           <td></td>
           <td>item_id</td>
@@ -328,14 +338,21 @@ m_character<br>
     アイテムIDで先ほど作ったアイテムマスタテーブルからアイテム情報を引っ張ってきましょう。<br>
     <br>
     
-    一通りガチャに必要なマスタテーブルを作成しました。
-    まだまだ手を入れたい箇所もあるとは思いますが、実装の方にも着手していきましょう。
-    実装することによって見えてくることもあります。
-
-    次回はPostgreSQLでDBを実装していきましょう！
-
-    【第二回】DBを実装しよう！
+    一通りガチャに必要なマスタテーブルを作成しました。<br>
+    ここで一旦整理するためにER図に落とし込んでみましょう。<br>
+    面倒ではありますが、実装する際に分かりやすくなります。<br>
     </p>
+
+    <img src = "img\eyeCatchSakura.png" alt = "no image.">
+    <p>
+    まだまだ手を入れたい箇所もあるとは思いますが、実装の方にも着手していきましょう。<br>
+    実装することによって見えてくることもあります。<br>
+
+    次回はPostgreSQLでDBを実装していきましょう！<br>
+
+    【第二回】DBを実装しよう！<br>
+    </p>
+    
 
 </body>
 </html>
